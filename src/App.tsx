@@ -4,6 +4,7 @@ import '@tensorflow/tfjs';
 import * as use from '@tensorflow-models/universal-sentence-encoder';
 import { reduceTo2D } from "./utils";
 import { CartesianGrid, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts";
+import { PlayIcon } from "@yamada-ui/lucide"
 
 function App() {
   const [value, setValue] = useState<string[]>([])
@@ -33,7 +34,7 @@ function App() {
       <Heading>キーワード入力</Heading>
       <HStack w="full" maxW="lg">
         <MultiAutocomplete value={value} onChange={setValue} allowCreate />
-        <Button onClick={generateEmbedding}>実行</Button>
+        <Button onClick={generateEmbedding} leftIcon={<PlayIcon />}>実行</Button>
       </HStack>
       <ResponsiveContainer width="100%" height={400}>
         <ScatterChart
